@@ -5,10 +5,13 @@ import { Card } from "@mui/material";
 function TestimonialCard() {
   return (
     <MyCard>
-      <img
-        alt="profile photo"
-        src="https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-      />
+      <span>
+        <img
+          alt="profile photo"
+          src="https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+        />
+      </span>
+
       <div>
         <h3>Foulen Ben Foulen</h3>
         <h5>18/07/2022 18:35</h5>
@@ -27,23 +30,29 @@ function TestimonialCard() {
 
 export default TestimonialCard;
 const MyCard = styled(Card)`
+  flex-direction: column;
   width: 90%;
   margin: 16px 0;
   padding: 16px;
   border-radius: 8px;
   display: flex;
   align-items: flex-start;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
   img {
-    margin-right: 16px;
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    object-fit:cover;
+    object-fit: cover;
   }
   div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  span {
+    margin-right: 16px;
   }
   p {
     margin-top: 16px;

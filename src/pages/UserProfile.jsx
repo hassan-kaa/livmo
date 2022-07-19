@@ -2,9 +2,9 @@ import React from "react";
 
 import styled from "styled-components";
 import { useState } from "react";
-import { Divider, Card, Link, Container } from "@mui/material";
+import { Divider, Card, Link } from "@mui/material";
 import ExperiencCard from "../components/ExperiencCard";
-import UserCard, { MyButton } from "../components/UserCard";
+import { MyButton } from "../components/UserCard";
 import TestimonialCard from "../components/TestimonialCard";
 import BioCard from "../components/BioCard";
 import BottomNavigation from "@mui/material/BottomNavigation";
@@ -15,21 +15,16 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ChatBubbleOutlineOutlined from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import ProfilePagination from "../components/ProfilePagination";
+
 function UserProfile() {
   const [value, setValue] = useState(0);
+  const [more, setMore] = useState(false);
+  const toggleTestimonials = () => {
+    setMore(!more);
+  };
   return (
     <MyContainer>
-      <UserCard
-        imageSrc="https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-        label="Adventurer"
-        name="Flen Ben Foulen"
-        button={true}
-      />
-
-      <ProfilePagination />
-      <Divider />
-      <Container>
+      <ResponsiveDiv>
         <Left>
           <img
             src="https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
@@ -76,7 +71,7 @@ function UserProfile() {
           </MyCard>
         </Left>
         <Right>
-          <div style={{ marginTop: "36px" }}>
+          <div>
             <h2 style={{ color: "#e42651" }}>Flen Ben Foulen</h2>
             <h5>Adventurer</h5>
             <h6>Member since 2022</h6>
@@ -98,8 +93,17 @@ function UserProfile() {
 
           <TestimonialCard />
           <TestimonialCard />
+          {more && (
+            <React.Fragment>
+              <TestimonialCard />
+              <TestimonialCard />
+            </React.Fragment>
+          )}
+          <MyButton onClick={toggleTestimonials}>
+            Show {more ? "less" : "more"}
+          </MyButton>
         </Right>
-      </Container>
+      </ResponsiveDiv>
     </MyContainer>
   );
 }
@@ -110,21 +114,35 @@ const MyContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+const ResponsiveDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
+
 const Right = styled.div`
-  width: 60%;
-  position: absolute;
+  padding: 16px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  right: 0;
+  align-items: center;
   span {
     display: flex;
   }
+  @media only screen and (min-width: 768px) {
+    width: 60%;
+    position: absolute;
+    right: 0;
+    align-items: flex-start;
+  }
 `;
 const Left = styled.div`
-  width: 30%;
-  position: absolute;
-  left: 0;
+  padding: 16px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,10 +156,15 @@ const Left = styled.div`
   span {
     display: flex;
   }
+  @media only screen and (min-width: 768px) {
+    width: 30%;
+    position: absolute;
+    left: 0;
+  }
 `;
 const MyCard = styled(Card)`
-  padding: 32px;
-  margin: 16px;
+  padding: 16px;
+  margin: 16px 0;
   width: 80%;
   display: flex;
   flex-direction: column;

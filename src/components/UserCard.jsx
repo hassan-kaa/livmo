@@ -19,6 +19,7 @@ function UserCard({ imageSrc, name, label, button }) {
 
 export default UserCard;
 const MyCard = styled.div`
+  width: 90%;
   display: flex;
   align-items: center;
   padding: 32px;
@@ -41,10 +42,17 @@ const MyCard = styled.div`
 
   img {
     margin-right: 32px;
-    width: 196px;
-    height: 196px;
+    width: 128px;
+    height: 128px;
     border-radius: 100%;
     object-fit: cover;
+  }
+  @media only screen and (min-width: 768px) {
+    width: 60%;
+    img {
+      width: 196px;
+      height: 196px;
+    }
   }
 `;
 export const MyButton = styled.button`
