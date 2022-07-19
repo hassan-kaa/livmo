@@ -9,18 +9,18 @@ import TestimonialCard from "../components/TestimonialCard";
 import BioCard from "../components/BioCard";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ChatBubbleOutlineOutlined from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import SocialMedia from "../components/SocialMedia";
 
 function UserProfile() {
   const [value, setValue] = useState(0);
-  const [more, setMore] = useState(false);
+  const [moreTestimonials, setMore] = useState(false);
   const toggleTestimonials = () => {
-    setMore(!more);
+    setMore(!moreTestimonials);
   };
   return (
     <MyContainer>
@@ -41,13 +41,16 @@ function UserProfile() {
               label="Verified"
               icon={<CheckCircleOutlineOutlinedIcon />}
             />
-            <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+            <BottomNavigationAction
+              label="Favorites"
+              icon={<FavoriteBorderOutlinedIcon />}
+            />
             <BottomNavigationAction
               label="Comments"
               icon={<ChatBubbleOutlineOutlinedIcon />}
             />
           </BottomNavigation>
-          <Divider />
+          <Divider color="primary" />
           <p>Foulen Confirmation effectuee</p>
           <MyCard>
             <span>
@@ -69,6 +72,7 @@ function UserProfile() {
               helps keep the LIVMO community safe .
             </p>
           </MyCard>
+          <SocialMedia />
         </Left>
         <Right>
           <div>
@@ -93,15 +97,18 @@ function UserProfile() {
 
           <TestimonialCard />
           <TestimonialCard />
-          {more && (
+          {moreTestimonials && (
             <React.Fragment>
               <TestimonialCard />
               <TestimonialCard />
             </React.Fragment>
           )}
           <MyButton onClick={toggleTestimonials}>
-            Show {more ? "less" : "more"}
+            Show {moreTestimonials ? "less" : "more"}
           </MyButton>
+          <h2>Booked Experiences</h2>
+          <ExperiencCard />
+          <ExperiencCard />
         </Right>
       </ResponsiveDiv>
     </MyContainer>
@@ -132,6 +139,9 @@ const Right = styled.div`
   align-items: center;
   span {
     display: flex;
+  }
+  h2 {
+    margin: 16px 0;
   }
   @media only screen and (min-width: 768px) {
     width: 60%;
