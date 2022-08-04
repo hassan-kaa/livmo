@@ -1,12 +1,13 @@
 
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Contact from "./pages/Contact";
-import UserProfile from "./pages/UserProfile";
+import Dashboard from "./pages/Dashboard";
+import FileImport from "./pages/FileImport";
+//import UserProfile from "./pages/UserProfile";
 function App() {
   return (<ThemeProvider theme={theme}>
     <div className="App">
-     <Contact/>
+     <FileImport/>
     </div>
     </ThemeProvider>
   );
@@ -22,4 +23,5 @@ const theme = createTheme({
       main: "#000",
     },
   },
+    
 });
