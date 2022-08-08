@@ -1,13 +1,15 @@
 
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Dashboard from "./pages/Dashboard";
-import FileImport from "./pages/FileImport";
+import Services from "./pages/Services";
+// import Dashboard from "./pages/Dashboard";
+// import FileImport from "./pages/FileImport";
 //import UserProfile from "./pages/UserProfile";
+
 function App() {
   return (<ThemeProvider theme={theme}>
-    <div className="App">
-     <FileImport/>
+    <div className="App">   
+     <Services/>
     </div>
     </ThemeProvider>
   );

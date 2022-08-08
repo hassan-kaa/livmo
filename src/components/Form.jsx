@@ -162,7 +162,12 @@ const MyForm = styled.form`
   }
   button {
     border-radius: 32px;
-    background-color: #e42651;
+    background: linear-gradient(
+      90deg,
+      #f02f32 0%,
+      #e22357 59.52%,
+      #da1d6c 100%
+    );
     border: none;
     color: white;
     padding: 8px 24px;
