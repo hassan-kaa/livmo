@@ -3,7 +3,7 @@ import React from "react";
 import { useRef } from "react";
 import styled from "styled-components";
 import AddIcon from "@mui/icons-material/Add";
-function FileUploader() {
+function FileUploader({ onClickFunction }) {
   const hiddenFileInput = useRef(null);
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -18,7 +18,13 @@ function FileUploader() {
         <AddIcon sx={{ fontSize: 80 }} />
         <h3>Add image</h3>
       </AddImage>
-      <input ref={hiddenFileInput} type="file" style={{ display: "none" }} />
+      <input
+        ref={hiddenFileInput}
+        onChange={onClickFunction}
+        type="file"
+        hidden
+        multiple
+      />
     </React.Fragment>
   );
 }
