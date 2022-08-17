@@ -1,8 +1,10 @@
 
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import ImageAdder from "./pages/ImageAdder";
+
 import {Banner,MyButton, MyContainer} from "./components/CustomStyled"
+import DishForm from "./components/DishForm";
+import LodgingForm from "./components/LodgingForm";
 import TransportForm from "./components/TransportForm";
 // import Dashboard from "./pages/Dashboard";
 // import FileImport from "./pages/FileImport";
@@ -20,8 +22,9 @@ function App() {
         <h1>Transport edit :</h1>
       </Banner>
       <MyContainer>
+      <DishForm  />
+      <LodgingForm  />
       <TransportForm  />
-      <ImageAdder text={"Dish Images"}/>
       <span>
           <MyButton>Cancel</MyButton>
           <MyButton confirm>Confirm</MyButton>

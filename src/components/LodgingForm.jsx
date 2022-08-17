@@ -1,7 +1,7 @@
 import { Grid, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
+import ImageAdder from "./ImageAdder";
 import { yupResolver } from "@hookform/resolvers/yup";
 import StarIcon from "@mui/icons-material/Star";
 import * as yup from "yup";
@@ -189,6 +189,7 @@ function LogdingForm() {
         </SubGrid>
         <SubGrid item xs={12}></SubGrid>
       </Grid>
+      <ImageAdder text="Hotel Images" />
     </div>
   );
 }

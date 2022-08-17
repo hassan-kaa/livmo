@@ -1,6 +1,6 @@
 import { Grid, MenuItem } from "@mui/material";
 import React, { useState } from "react";
-
+import ImageAdder from "./ImageAdder";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
@@ -188,6 +188,7 @@ function TransportForm() {
         </SubGrid>
         <SubGrid item xs={12}></SubGrid>
       </Grid>
+      <ImageAdder text="Car Images" />
     </div>
   );
 }

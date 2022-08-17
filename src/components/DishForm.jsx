@@ -11,7 +11,7 @@ import {
   MyButton,
 } from "./CustomStyled";
 import React, { useState, useEffect } from "react";
-
+import ImageAdder from "./ImageAdder";
 import { useForm } from "react-hook-form";
 
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -322,6 +322,7 @@ function DishForm() {
           </SubGrid>
           <SubGrid item xs={12}></SubGrid>
         </Grid>
+        <ImageAdder text="Dish Images" />
       </LocalizationProvider>
     </div>
   );
